@@ -1,5 +1,6 @@
 const express = require("express");
 const mercadopago = require("mercadopago");
+require("dotenv").config();
 
 const router = express.Router();
 
@@ -7,17 +8,18 @@ mercadopago.configure({
   access_token: process.env.MP_ACCESS_TOKEN,
 });
 
-router.post("/create_preference", (req, res) => {
+router.post("/create", (req, res) => {
   let preference = {
     items: [
       {
-        title: req.body.description,
+        title: req.body.name,
         unit_price: Number(req.body.price),
         quantity: 1,
+        currency_id: "COP",
       },
     ],
     back_urls: {
-      success: "http://localhost:3001/feedback",
+      success: "http://localhost:3001/feedback", // redirige aquí después de pago exitoso
       failure: "http://localhost:3001/feedback",
       pending: "http://localhost:3001/feedback",
     },

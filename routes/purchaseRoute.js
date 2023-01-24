@@ -23,21 +23,21 @@ router.post("/purchase", (req, res) => {
     .catch((error) => {
       console.error(error);
     });
-  const message2 = {
-    to: "lucasvelezv@gmail.com",
-    from: "lucasvelezv@gmail.com",
-    subject: "Compra de: " + req.body.product,
-    text:
-      req.body.name +
-      " ha comprado un servicio. Su emeail es: " +
-      req.body.email,
-  };
-  sgMail
-    .send(message2)
-    .then(() => console.log("Mail-2 sent successfully"))
-    .catch((error) => {
-      console.error(error);
-    });
+  // const message2 = {
+  //   to: "lucasvelezv@gmail.com",
+  //   from: "lucasvelezv@gmail.com",
+  //   subject: "Compra de: " + req.body.product,
+  //   text:
+  //     req.body.name +
+  //     " ha comprado un servicio. Su emeail es: " +
+  //     req.body.email,
+  // };
+  // sgMail
+  //   .send(message2)
+  //   .then(() => console.log("Mail-2 sent successfully"))
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
 });
 
 module.exports = router;
