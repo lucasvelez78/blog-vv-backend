@@ -5,7 +5,7 @@ const cors = require("cors");
 require("dotenv/config");
 const path = require("path");
 const contactUsRoute = require("./routes/contactUsRoute");
-const purchaseRoute = require("./routes/purchaseRoute");
+const sendBuyNotificationRoute = require("./routes/sendBuyNotificationRoute");
 const registerRoute = require("./routes/registerRoute");
 const mediaRoute = require("./routes/mediaRoute");
 const paymentRoute = require("./routes/paymentRoute");
@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
 
 app.use("/", contactUsRoute);
 
-app.use("/", purchaseRoute);
+app.use("/", sendBuyNotificationRoute);
 
 app.use("/", registerRoute);
 

@@ -20,7 +20,7 @@ router.post("/create", (req, res) => {
     ],
     back_urls: {
       success:
-        "https://743c-2800-e2-8880-2575-f589-aa78-5446-4d6e.ngrok.io/purchased", // redirige aquí después de pago exitoso
+        "https://7fc1-2800-e2-8880-2575-f589-aa78-5446-4d6e.ngrok.io/purchased", // redirige aquí después de pago exitoso
       failure: "http://localhost:3001/feedback",
       pending: "http://localhost:3001/feedback",
     },
@@ -40,12 +40,12 @@ router.post("/create", (req, res) => {
     });
 });
 
-router.get("/feedback", function (req, res) {
-  res.json({
-    Payment: req.query.payment_id,
-    Status: req.query.status,
-    MerchantOrder: req.query.merchant_order_id,
-  });
-});
+// router.get("/feedback", function (req, res) {
+//   res.json({
+//     Payment: req.query.payment_id,
+//     Status: req.query.status,
+//     MerchantOrder: req.query.merchant_order_id,
+//   });
+// });
 
 module.exports = router;

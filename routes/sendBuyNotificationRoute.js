@@ -7,7 +7,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 //send email after purchasing a product
 
-router.post("/purchase", (req, res) => {
+router.post("/compra", (req, res) => {
   console.log(req.body);
   const message = {
     to: req.body.email,
@@ -23,21 +23,6 @@ router.post("/purchase", (req, res) => {
     .catch((error) => {
       console.error(error);
     });
-  // const message2 = {
-  //   to: "lucasvelezv@gmail.com",
-  //   from: "lucasvelezv@gmail.com",
-  //   subject: "Compra de: " + req.body.product,
-  //   text:
-  //     req.body.name +
-  //     " ha comprado un servicio. Su emeail es: " +
-  //     req.body.email,
-  // };
-  // sgMail
-  //   .send(message2)
-  //   .then(() => console.log("Mail-2 sent successfully"))
-  //   .catch((error) => {
-  //     console.error(error);
-  //   });
 });
 
 module.exports = router;
