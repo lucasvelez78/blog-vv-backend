@@ -11,11 +11,7 @@ const mediaRoute = require("./routes/mediaRoute");
 const paymentRoute = require("./routes/paymentRoute");
 
 const app = express();
-app.use(
-  cors({
-    origin: ["http://localhost:3000", "https://blog-vvm.onrender.com"],
-  })
-);
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: true }));
