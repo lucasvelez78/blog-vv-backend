@@ -17,6 +17,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+const PORT = process.env.PORT || 3001;
+
 // MongoDB -- DB connection -------------------------------------------------
 mongoose.set("strictQuery", true);
 
@@ -45,6 +47,6 @@ app.use("/purchase", paymentRoute);
 
 app.use("/public", express.static(path.join(__dirname, "public")));
 
-app.listen(3001, function () {
-  console.log("express server running in port 3001");
+app.listen(PORT, function () {
+  console.log("express server running in port " + PORT);
 });
