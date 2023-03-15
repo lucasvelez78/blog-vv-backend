@@ -16,8 +16,21 @@ router.post("/contact", (req, res) => {
     text:
       "El email del usuario es:  " + req.body.email + "... " + req.body.message,
   };
+  const contactMessageReceived = {
+    to: req.body.email,
+    from: "lucasvelezv@gmail.com",
+    subject: "Gracias por contactarnos " + req.body.name,
+    text: "Revisaremos tu petición y nos contactaremos contigo muy pronto.",
+  };
+
   sgMail
     .send(contactMessage)
+    .then(() => console.log("Mail sent successfully"))
+    .catch((error) => {
+      console.error(error);
+    });
+  sgMail
+    .send(contactMessageReceived)
     .then(() => console.log("Mail sent successfully"))
     .catch((error) => {
       console.error(error);
